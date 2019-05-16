@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+     {{text.split(',').reverse().join(',')}}
+     {{ reversedText2 }}
+</div>
+
+<!--script脚本-->
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            text: '123,456',
+            text2: 'abc,def'
+        },
+        computed: {
+            reversedText2: function () {
+                //this指向的是当前vue实例对象
+                return this.text2.split(',').reverse().join(',');
+            }
+        }
+    })
+</script>
+</body>
+</html>
+

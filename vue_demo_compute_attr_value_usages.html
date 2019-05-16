@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+   总价：  {{ prices }}
+</div>
+
+<!--script脚本-->
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            package1: [
+                {
+                   "name":'iPhone7',
+                    "price":7199,
+                    "count": 1
+                },
+                {
+                    "name":'ipad',
+                    "price":2888,
+                    "count": 1
+                }
+            ],
+            package2: [
+                {
+                    "name":'apple',
+                    "price":3,
+                    "count": 5
+                },
+                {
+                    "name":'banana',
+                    "price":2,
+                    "count": 10
+                }
+            ],
+        },
+        computed: {
+            prices: function () {
+                //this指向的是当前vue实例对象
+                //计算总价
+                var  prices=0;
+                //遍历第一个
+                for (var i=0;i<this.package1.length;i++ ) {
+                    prices=prices+this.package1[i].price*this.package1[i].count;
+                }
+                //遍历第二个数组
+                for (var i=0;i<this.package2.length;i++ ) {
+                    prices=prices+this.package2[i].price*this.package2[i].count;
+                }
+                return prices;
+            }
+        }
+    })
+</script>
+</body>
+</html>
+
