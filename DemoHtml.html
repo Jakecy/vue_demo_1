@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+   <div id="app">
+          <ul>
+              <li v-for="book in books">{{book.name}}</li>  <!--把数据渲染进DOM-->
+          </ul>
+      <span>{{insertValue}}</span>
+   </div>
+
+   <!--script脚本-->
+  <script>
+      var app = new Vue({
+          el: '#app',
+          data: {
+            books:[
+                {name: 'Vue.js实战1'},
+                {name: 'Vue.js实战2'},
+                {name: 'Vue.js实战3'}
+            ],
+              social: '马斯洛的人类需要的五个层次： 生理需要，安全需要，归属与爱的需要，尊严需要，自我实现的需要',
+              insertValue:'弗洛伊德的《梦的解析》'
+          },
+          //钩子
+          //钩子函数
+          created: function () {
+              //
+              console.log(this.social)
+          },
+          mounted: function () {
+              console.log('vue实例挂载到element元素上成功之后执行！')
+          },
+          beforeDestroy:function () {
+              console.log('vue实例销毁之前执行')
+          }
+      })
+  </script>
+</body>
+</html>

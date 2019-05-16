@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-if="show">{{msg}}</p>
+    <button v-on:click="handleClose">点击隐藏</button>
+</div>
+
+<!--script脚本-->
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            msg:'    在button按钮上，使用v-on:click 给该元素绑定了一个点击事件，在普通元素上，v-on可以监听原生的DOM事件，除了click外，还有\n' +
+                '    dblclick,keyup,mousemove等。表达式可以是一个方法名，这些方法都写在Vue实例的methods属性内，并且是函数的形式，函数内的this指向的是当前vue实例本身，\n' +
+                '\n' +
+                '    因此可以直接使用this.xxx的形式来访问或修改数据。'
+        },
+        methods:{
+            handleClose: function () {
+                this.show=false;
+            }
+        }
+    })
+</script>
+</body>
+</html>
+
