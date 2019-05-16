@@ -20,14 +20,18 @@
         el: '#app',
         data: {
             show: true,
-            resp: null
+            resp: '怎么不显示！'
         },
         methods:{
             getUserInfo: function () {
+                var _this=this;
                 axios.get('http://39.105.124.108:8080/queryAccountInfoById?id=255')
                     .then(function (response) {
-                        this.resp=response.data.data.permissions;
+                        _this.resp='我的大中国'
+                        _this.resp=response.data.data.permissions;
                         console.log('响应的数据')
+                        console.log(typeof response.data.data.permissions)
+                        console.log( response.data.data.permissions)
                         console.log(response.data.data);
                     })
                     .catch(function (error) {
