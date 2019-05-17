@@ -1,0 +1,9 @@
+#app{
+    font-size: 24px;
+    color: #f50;
+}
+[v-cloak] {
+    display: none;
+}
+
+
