@@ -1,10 +1,34 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
 </head>
 <body>
+<!--理解v-cloak指令的作用，以及应用场景-->
+<div id="app" >
 
+    <!--ul标签是无序 HTML 列表-->
+   <ul>
+       <!--类似于mybatis标签里面的item in  list的遍历方式，其中item代表每一次遍历集合中的元素-->
+        <li v-for="book in books">{{book.name}}</li>
+   </ul>
+</div>
+<!--script脚本-->
+<script>
+    //创建vue实例
+    var  vue=new Vue({
+        el: '#app',
+        data: {
+            books:[
+                {name: 'netty实战'},
+                {name: 'netty权威指南'},
+                {name: 'java NIO'}
+            ]
+        }
+    });
+</script>
 </body>
 </html>
