@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+</head>
+<body>
+
+
+<!--input输入框-->
+<div id="app">
+     <input type="text" v-model="message" placeholder="请输入">
+    <p>输入的内容是: {{message}}</p>
+</div>
+
+<script>
+    var  vue=new Vue({
+        el:'#app',
+        data:{
+           message:''
+        }
+    });
+</script>
+</body>
+</html>

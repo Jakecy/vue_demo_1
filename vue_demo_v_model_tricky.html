@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+</head>
+<body>
+
+
+<!--input输入框-->
+<div id="app">
+    <!--把message字段的值作为input标签的value属性值，同时监听输入事件，实时更新message的值-->
+    <input type="text" @input="handleInput($event)"  placeholder="请输入"  v-bind:value="message">
+    <p>输入的内容是: {{message}}</p>
+</div>
+
+<script>
+    var  vue=new Vue({
+        el:'#app',
+        data:{
+            message:''
+        },
+        methods:{
+            handleInput: function (event) {
+                console.info("控制台打印event详情")
+                console.info(event)
+               var eventStr=JSON.stringify(event);
+                console.info("打印字符串后的event"+eventStr)
+                this.message=event.target.value;
+            }
+        }
+    });
+</script>
+</body>
+</html>
