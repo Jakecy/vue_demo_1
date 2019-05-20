@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+</head>
+<body>
+
+
+<!--复选框-->
+<div id="app">
+    <!--input复选按钮：
+
+    -->
+    <label for="one">One</label>
+    <input type="checkbox"  id="one"   v-model="selectValue"  value="one"/>
+    <br>
+    <label for="two">Two</label>
+    <input type="checkbox"  id="two"   v-model="selectValue"  value="two" />
+    <br>
+    <label for="three">Three</label>
+    <input type="checkbox"  id="three"   v-model="selectValue"  value="three" />
+    <br>
+    <label for="four">Four</label>
+    <input type="checkbox"  id="four"   v-model="selectValue"  value="four" />
+    <br>
+    <span>当前选取的选框的值:  {{selectValue}}</span>
+</div>
+
+<script>
+    var  vue=new Vue({
+        el:'#app',
+        data:{
+            selectValue:['one','two']
+        },
+        methods:{
+            getInputValue: function (param) {
+                console.info(param)
+                alert("获取到的单选框的值是： "+param);
+            }
+        }
+    });
+</script>
+</body>
+</html>

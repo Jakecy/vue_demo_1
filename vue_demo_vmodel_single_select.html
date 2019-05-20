@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+</head>
+<body>
+
+
+<!--input实现单选-->
+<div id="app">
+    <!--input单选按钮：
+      1.name属性表示这个标签的
+      2.type标识的是input框的类型
+      3.value是该单选框选中时对应的值。
+    -->
+    <input type="radio"    name="sex" value="male"  @click="getInputValue('male')"/>男
+    <input type="radio" name="sex" value="female" />女
+</div>
+
+<script>
+    var  vue=new Vue({
+        el:'#app',
+        data:{
+            checked:'false'
+        },
+        methods:{
+            getInputValue: function (param) {
+                console.info(param)
+               alert("获取到的单选框的值是： "+param);
+            }
+        }
+    });
+</script>
+</body>
+</html>
