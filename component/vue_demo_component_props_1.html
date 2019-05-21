@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+   <!--使用props进行正向地数据传递-->
+   <div id="app">
+        <!--使用组件-->
+       <use-props-transfer-data message="父组件传递的数据"></use-props-transfer-data>
+   </div>
+
+
+<script>
+    //注册一个全局component
+    Vue.component("use-props-transfer-data",{
+        //
+        props:['message'],
+        template: '<div>{{message}}</div>'
+    });
+    //创建vue实例
+    var  vue=new Vue({
+        el: '#app',
+        data:{
+
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<!--使用props进行正向地数据传递-->
+<div id="app">
+    <!--使用组件-->
+    <use-props-single-direct  init_value="5"></use-props-single-direct>
+</div>
+
+
+<script>
+    //注册一个全局component
+    //这里需要说明的是： component本身就是一个vue实例，它内部有属于自己的data,methods等。
+    Vue.component("use-props-single-direct",{
+        //
+        props:['init_value'],
+        template: '<div>初始数据是: {{count}}</div>',
+        data: function(){
+            return {
+                count: this.init_value
+            }
+        },
+    });
+    //创建vue实例
+    var  vue=new Vue({
+        el: '#app'
+    });
+</script>
+</body>
+</html>
