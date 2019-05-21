@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+</head>
+<body>
+
+<!--
+
+
+-->
+<!--组件component-->
+<div id="app">
+  <!--使用组件-->
+    <button-counter></button-counter>
+
+</div>
+
+<script>
+    //注册一个组件
+    Vue.component("button-counter",{
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button v-on:click="count++">你已经点击{{count}}次</button>'
+    });
+    var  vue=new Vue({
+        el:'#app',
+        data:{
+            message: ''
+        },
+        methods:{
+            getInputValue: function (param) {
+                console.info(param)
+                alert("获取到的单选框的值是： "+param);
+            }
+        }
+    });
+</script>
+</body>
+</html>
