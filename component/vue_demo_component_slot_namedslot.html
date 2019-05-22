@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <child-component >
+        <!--下面的标签将会被分发到子组件的<slot>标签内显示-->
+        <!--具名slot-->
+        <!--指定了slot名称的标签元素及内容将会被分发到对应名称的slot中渲染显示，没有指定名称的将会被分发到默认slot中-->
+        <h2 slot="header">标题</h2>
+        <p>正文内容</p>
+        <div slot="footer">底部信息</div>
+    </child-component>
+</div>
+
+<script>
+    //注册一个全局组件
+    Vue.component('child-component',{
+        template: '<div class="container">' +
+                        '<div class="header">' +
+                                '<slot name="header"></slot>' +
+                        '</div>' +
+
+                        '<div class="main">' +
+                        '<slot ></slot>' +
+                        '</div>' +
+                        '<div class="footer">' +
+                        '<slot name="footer"></slot>' +
+                        '</div>' +
+            '</div>'
+    });
+
+
+    //创建一个vue实例
+    var  vue=new Vue({
+        el: '#app',
+        data: {
+            show_child: true
+        },
+
+    });
+</script>
+</body>
+</html>
