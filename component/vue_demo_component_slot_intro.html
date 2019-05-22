@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+      <child-component v-show="show_child"></child-component>
+  </div>
+
+<script>
+   //注册一个全局组件
+   Vue.component('child-component',{
+       template: '<div>子组件</div>'
+   });
+
+
+    //创建一个vue实例
+    var  vue=new Vue({
+        el: '#app',
+        data: {
+            show_child: true
+        },
+
+    });
+</script>
+</body>
+</html>

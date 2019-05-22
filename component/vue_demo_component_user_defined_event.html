@@ -10,7 +10,7 @@
  <!--用户自定义事件-->
   <div id="app">
       <p> 总数为: {{total}}</p>
-      //父组件负责监听名为：increase，reduce的事件，并进行相应处理
+      <!--父组件负责监听名为：increase，reduce的事件，并进行相应处理-->
       <my-component v-on:increase="handleGetTotal"  v-on:reduce="handleGetTotal"></my-component>
   </div>
 <script>
