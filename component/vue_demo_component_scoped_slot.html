@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入最新的vue稳定版本-->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+
+<!--作用域插槽-->
+<div id="app">
+    <child-component >
+       <template v-slot:default="slotProps">
+           <p>来自父组件的内容</p>
+           <p>{{slotProps.my_value}}</p>
+       </template>
+
+    </child-component>
+</div>
+
+<script>
+    //注册一个全局组件
+    // 我们可以在<slot>标签元素上使用v-bind指令绑定一个特性(属性)如：v-bind:my_prop，也被称为插槽prop
+    //  在父组件上访问插槽prop：
+    //  语法格式:  slotProps.my_prop   这样即可访问my_prop对象
+    Vue.component('child-component',{
+        data: function(){
+            return {
+                msg: '来自子组件的内容'
+            }
+        },
+        template: '<div class="container">' +
+            '<slot v-bind:my_value="msg">' +
+            '</slot>' +
+            '</div>'
+    });
+
+
+    //创建一个vue实例
+    var  vue=new Vue({
+        el: '#app',
+    });
+</script>
+</body>
+</html>
